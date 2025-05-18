@@ -1,10 +1,12 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import type Task from "../types/Task";
 
 export default function TaskInput({ setTasks }) {
     const [inputValue, setInputValue] = useState("");
 
     function addTask() {
+        if (inputValue === "") return;
+
         setTasks((prevTasks: Task[]) => [
             {
                 id: prevTasks.length + 1,

@@ -9,10 +9,10 @@ export default function TaskComponent({ task }: { task: Task }) {
     }
 
     return (
-        <div>
+        <div style={{ display: "flex", alignItems: "center" }}>
             <div>
                 <button onClick={onCompleted}>
-                    {completed ? <h3>completed</h3> : <h3>not</h3>}
+                    {completed ? <h3>Completed!</h3> : <h3>Not Completed :(</h3>}
                 </button>
             </div>
             <div>
