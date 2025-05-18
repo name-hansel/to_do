@@ -1,7 +1,8 @@
 import { useState } from "react";
 import Header from "./components/Header";
 import TaskInput from "./components/TaskInput";
-import Task from "./components/Task";
+import TaskComponent from "./components/TaskComponent";
+import type Task from "./types/Task";
 
 export default function App() {
   const [tasks, setTasks] = useState([]);
@@ -11,7 +12,7 @@ export default function App() {
       <Header />
       <TaskInput setTasks={setTasks} />
       {
-        tasks.map((task: Task) => <Task key={task.id} task={task} />)
+        tasks.map((task: Task) => <TaskComponent key={task.id} task={task} />)
       }
     </div>
   )

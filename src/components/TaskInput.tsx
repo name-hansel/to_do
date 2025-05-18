@@ -1,17 +1,18 @@
 import { useState } from "react";
+import type Task from "../types/Task";
 
 export default function TaskInput({ setTasks }) {
     const [inputValue, setInputValue] = useState("");
 
     function addTask() {
         setTasks((prevTasks: Task[]) => [
-            ...prevTasks,
             {
                 id: prevTasks.length + 1,
                 text: inputValue,
-                completed: false,
+                isCompleted: false,
                 createdAt: Date.now()
-            }
+            },
+            ...prevTasks,
         ])
 
         setInputValue("");
