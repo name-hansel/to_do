@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
+
 import Header from "./components/Header";
 import TaskInput from "./components/TaskInput";
-import TaskComponent from "./components/TaskComponent";
-import type Task from "./types/Task";
+import Tasks from "./components/Tasks";
+
+import { Box } from "@mui/material";
 
 export default function App() {
   const savedTasks = JSON.parse(localStorage.getItem("to_do_items") || "[]");
@@ -13,13 +15,10 @@ export default function App() {
   }, [tasks]);
 
   return (
-    <div>
+    <Box display="flex" flexDirection="column" alignItems="center" justifyContent="center">
       <Header />
       <TaskInput setTasks={setTasks} />
-      {
-        tasks.length == 0 ? <h2>No tasks yet!</h2> :
-          tasks.map((task: Task) => <TaskComponent key={task.id} task={task} />)
-      }
-    </div>
-  )
+      <Tasks tasks={tasks} />
+    </Box>
+  );
 }

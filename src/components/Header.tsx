@@ -1,7 +1,9 @@
+import { Grid, Typography } from "@mui/material";
+
 export default function Header() {
-    return (
-        <div>
-            <h1>To_Do</h1>
-        </div>
-    )
+  return (
+    <Grid>
+      <Typography variant="h1">To Do</Typography>
+    </Grid>
+  );
 }
